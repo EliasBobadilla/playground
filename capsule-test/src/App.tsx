@@ -6,22 +6,17 @@ const pokemons = ["Pikachu", "Eevee", "Snorlax", "Sharizar", "Dito"];
 const App = () => {
   const [pokemon, setPokemon] = useState<string | undefined>();
 
-  const handleOnChange = (value?: string) => {
-    console.log("value =>", value);
-    setPokemon(value);
-  };
-
   return (
-    <div style={{ width: "250px" }}>
+    <div style={{ width: "250px", padding: "20px" }}>
       <Select
         options={pokemons}
         label="Available pokemons:"
         required
         value={pokemon || ""}
-        placeholder="Select one"
-        onChange={handleOnChange}
+        placeholder="Choose one"
+        onChange={setPokemon}
       />
-      <p>Gotcha: {pokemon}</p>
+      <p>Selected: {pokemon}</p>
     </div>
   );
 };
